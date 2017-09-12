@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Hashing";
+}
+
+<h1>Hashing engine</h1>
+
+
+
+<select>
+    @for(int i = 0; i < (List<string>)ViewData["algos"].Count; i++)
+        {
+            <option value=""> (List<string>)ViewData["algos"][i]</option>
+        }
+</select>
+
+
+<form action="/Crypto/Md5Hash" method="post">
+    <input type="text" name="inputMd5Plain"/>
+    <input type="submit" value="Submit"/>    
+
+</form>
+

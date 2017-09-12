@@ -1,10 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
+using dotnet_core_mvc_test.Models;
 
 namespace MvcMovie.Controllers
 {
     public class CryptoController : Controller
     {
+        public CryptoController()
+        {
+            
+        }
+
         // 
         // GET: /Crypto/
 
@@ -16,9 +22,35 @@ namespace MvcMovie.Controllers
         // 
         // GET: /Crypto/Welcome/ 
 
-        public string Welcome()
+        public IActionResult Welcome(string name, int id = 1)
         {
-            return "asd";
+            ViewData["Message"] = "Hello " + name;
+            ViewData["id"] = id;
+            return View();
+        }
+
+        // 
+        // GET: /Crypto/Hashing/ 
+        public IActionResult Hashing()
+        {
+            ViewData["Algos"] = CryptoModel.HashingAlgorithms;
+            return View();
+        }
+        
+        // 
+        // GET: /Crypto/Encryption/ 
+        public IActionResult Encryption()
+        {
+            return View();
+        }
+        
+        // 
+        // POST: /Crypto/Md5Hash/ 
+        [HttpPost]
+        public IActionResult Md5Hash(string inputMd5Plain)
+        {
+            ViewData["md5Raw"] = inputMd5Plain;
+            return View();
         }
     }
 }

@@ -42,7 +42,7 @@ namespace dotnet_core_mvc_test
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Crypto}/{action=Index}/{id?}");
             });
         }
     }
