@@ -8,9 +8,9 @@ namespace MvcMovie.Controllers
         // 
         // GET: /Crypto/
 
-        public string Index()
+        public IActionResult Index()
         {
-            return HtmlEncoder.Default.Encode("DEFAULT..");
+            return View();
         }
 
         // 
