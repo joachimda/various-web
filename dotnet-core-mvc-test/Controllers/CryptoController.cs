@@ -41,16 +41,26 @@ namespace MvcMovie.Controllers
         // GET: /Crypto/Encryption/ 
         public IActionResult Encryption()
         {
+            ViewData["Algos"] = CryptoModel.EncryptionAlgorithms;
             return View();
         }
         
         // 
-        // POST: /Crypto/Md5Hash/ 
+        // POST: /Crypto/Hash/ 
         [HttpPost]
-        public IActionResult Md5Hash(string inputMd5Plain)
+        public IActionResult Hash(string inputMd5Plain, string alg )
         {
             ViewData["md5Raw"] = inputMd5Plain;
             return View();
+        }
+
+        // 
+        // POST: /Crypto/Encrypt/ 
+        [HttpPost]
+        public IActionResult Encrypt(string inputPlain, string algorithm)
+        {
+            ViewData["md5Raw"] = inputPlain;
+            return Encryption();
         }
     }
 }
